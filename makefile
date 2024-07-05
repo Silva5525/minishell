@@ -6,11 +6,11 @@
 #    By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 15:45:34 by wdegraf           #+#    #+#              #
-#    Updated: 2024/07/05 15:47:25 by wdegraf          ###   ########.fr        #
+#    Updated: 2024/07/05 15:54:41 by wdegraf          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= push_swap
+NAME	:= minishell
 CC		:= cc
 CFLAGS	:= -Wall -Werror -Wextra -g
 #-Wunreachable-code
