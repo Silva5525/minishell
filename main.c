@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/06 13:21:17 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/06 13:29:02 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv, char **envp)
 		if (read)
 		{
 			add_history(read);
-			if (ft_strncmp(read, "exit", 6) == 0)
+			if (ft_strcmp(read, "exit") == 0)
 			{
 				free(read);
 				break;

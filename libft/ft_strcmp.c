@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:00:19 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/06 13:20:23 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/06 13:50:43 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,18 @@
 /// @return 0 if equal || -1 if s1 < s2 || 1 if s1 > s2
 int	ft_strcmp(const char *s1, const char *s2)
 {
-	while (*s1 && *s2 && (*s1 == *s2))
+	while (*s1 && (*s1 == *s2))
 	{
 		s1++;
 		s2++;
 	}
-	return ((int)((unsigned char *)s1 - (unsigned char *)s2));
+	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
+
+// int main(void)
+// {
+// 	char *s1 = "Hello";
+// 	char *s2 = "Helo";
+// 	printf("Result: %d\n", ft_strcmp(s1, s2));
+// 	return (0);
+// }
