@@ -6,11 +6,13 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/06 12:34:26 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/06 13:21:17 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+#include <readline/readline.h>
+#include <readline/history.h>
 
 /// @brief 
 /// @param argc Argument Count
@@ -19,20 +21,26 @@
 /// @return 
 int	main(int argc, char **argv, char **envp)
 {
-	int i;
-	
-	i = 0;
-	printf("argc: %d\n", argc);
-	while (argv[i])
+	char *read;
+	(void)argc;
+	(void)argv;
+	(void)envp;
+	while (1)
 	{
-		printf("argv[%d]: %s\n", i, argv[i]);
-		i++;
-	}
-	i = 0;
-	while (envp[i])
-	{
-		printf("envp[%d]: %s\n", i, envp[i]);
-		i++;
+		read = readline("minishell$ ");
+		if (read)
+		{
+			add_history(read);
+			if (ft_strncmp(read, "exit", 6) == 0)
+			{
+				free(read);
+				break;
+			}
+			printf("Out: %s\n", read);
+			free(read);
+		}
+		else
+			break;
 	}
 	return(0);
 }

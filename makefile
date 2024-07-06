@@ -6,7 +6,7 @@
 #    By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 15:45:34 by wdegraf           #+#    #+#              #
-#    Updated: 2024/07/05 15:54:41 by wdegraf          ###   ########.fr        #
+#    Updated: 2024/07/06 13:25:20 by wdegraf          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFT	:= ./libft
 
 HEADERS	:= -I ./include -I $(LIBFT)
 
-LIBS	:= -L$(LIBFT) -lft
+LIBS	:= -L$(LIBFT) -lft -lreadline
 
 SRCS	:= main.c 
 OBJS	:= ${SRCS:.c=.o}
