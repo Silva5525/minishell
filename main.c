@@ -6,13 +6,28 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/06 13:29:02 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/07 18:28:47 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-#include <readline/readline.h>
-#include <readline/history.h>
+
+/// @brief When user press Ctrl+C the input will be canceled
+/// and the shell will present a new prompt on a new line.
+/// @param sig if sig number is SIGINT it means you pressed Ctrl+C
+/// @rl_on_new_line() Prepare Readline to read the next input
+/// @rl_replace_line("", 0) clears the current line
+/// @rl_redisplay() redisplays the prompt on a cleared line
+void read_signal(int sig)
+{
+	if (sig == SIGINT)
+	{
+		write(1, "\n", 1);
+		rl_on_new_line();
+		rl_replace_line("", 0);
+		rl_redisplay();
+	}
+}
 
 /// @brief 
 /// @param argc Argument Count
@@ -25,6 +40,9 @@ int	main(int argc, char **argv, char **envp)
 	(void)argc;
 	(void)argv;
 	(void)envp;
+
+	signal(SIGINT, read_signal);
+	signal(SIGQUIT, SIG_IGN);
 	while (1)
 	{
 		read = readline("minishell$ ");
@@ -40,7 +58,10 @@ int	main(int argc, char **argv, char **envp)
 			free(read);
 		}
 		else
+		{
+			printf("exit\n");
 			break;
+		}
 	}
-	return(0);
+	return (0);
 }
