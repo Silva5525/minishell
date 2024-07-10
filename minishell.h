@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/06 17:21:16 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/10 20:25:50 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,23 @@
 
 #include "libft/libft.h"
 
-typedef struct s_token
+typedef struct s_tokens
 {
 	char	*str;
-	int		type;
+	int		typ;
 	struct s_token	*next;
 }	t_to;
 
 typedef struct s_ast
 {
-	int				type;
+	int				typ;
 	char			*str;
 	struct s_ast	*right;
 	struct s_ast	*left;
 }	t_ast;
+
+/// @param lexer.c
+
+t_to	*to_ken_producer(const char *read);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/07 18:28:47 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/07 19:02:07 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void read_signal(int sig)
 int	main(int argc, char **argv, char **envp)
 {
 	char *read;
+	t_to *ken;
 	(void)argc;
 	(void)argv;
 	(void)envp;
@@ -51,6 +52,7 @@ int	main(int argc, char **argv, char **envp)
 			add_history(read);
 			if (ft_strcmp(read, "exit") == 0)
 			{
+				write(1, "exit\n", 5);
 				free(read);
 				break;
 			}
@@ -59,9 +61,10 @@ int	main(int argc, char **argv, char **envp)
 		}
 		else
 		{
-			printf("exit\n");
+			write(1, "exit\n", 5);
 			break;
 		}
+		ken = to_ken_ize(read);
 	}
 	return (0);
 }

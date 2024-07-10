@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:13:48 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/06 13:36:06 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/10 15:32:23 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		ft_isalpha(int a);
 int		ft_isascii(int a);
 int		ft_isdigit(char d);
 int		ft_isprint(int a);
+int		ft_isspace(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_strcmp(const char *s1, const char *s2);
