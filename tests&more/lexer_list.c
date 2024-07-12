@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:56:44 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/10 20:44:29 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/12 10:12:18 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,15 @@ typedef struct s_tokens
 
 t_to	*list_token(char *val, int typ)
 {
-	t_to	*ken = malloc(sizeof(t_to)); // this needs a free...
+	t_to	*ken = malloc(sizeof(t_to));
 	if (!ken)
 		return (NULL);
 	ken->str = strdup(val);
+	if (!ken->str)
+	{
+		free(ken);
+		return (NULL);
+	}
 	ken->typ = typ;
 	ken->next = NULL;
 	return (ken);
@@ -113,17 +118,17 @@ void	free_kens(t_to *ken)
 	}
 }
 
-int main(void)
-{
-	const char	*read = "echo Ducks are cool | grep Ducks > output.txt";
-	t_to		*ken = to_ken_producer(read);
+// int main(void)
+// {
+// 	const char	*read = "echo Ducks are cool | grep Ducks > output.txt";
+// 	t_to		*ken = to_ken_producer(read);
 	
-	t_to *arr = ken;
-	while (arr)
-	{
-		printf("Token: %s, Type: %c\n", arr->str, arr->typ);
-		arr = arr->next;
-	}
-	free_kens(arr);
-	return (0);
-}
+// 	t_to *arr = ken;
+// 	while (arr)
+// 	{
+// 		printf("Token: %s, Type: %c\n", arr->str, arr->typ);
+// 		arr = arr->next;
+// 	}
+// 	free_kens(arr);
+// 	return (0);
+// }

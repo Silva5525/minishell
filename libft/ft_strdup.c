@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:55:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/02/20 20:45:01 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/12 12:33:27 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,14 @@ char	*ft_strdup(const char *s1)
 	size_t	i;
 
 	i = 0;
-	l = ft_strlen(s1) - 1;
+	l = ft_strlen(s1);
 	a = (char *)malloc((l + 1) * sizeof(char));
 	if (!a)
 		return (NULL);
-	while (l != 0)
+	while (i < l)
 	{
 		a[i] = s1[i];
 		i++;
-		l--;
 	}
 	a[i] = '\0';
 	return (a);
