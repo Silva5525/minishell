@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:56:44 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/10 19:45:03 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/10 20:44:29 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@
 #include <ctype.h>
 #include <readline/readline.h>
 #include <readline/history.h>
+// carefull as long the #include is here its probably not ok for
+// the norminette, becouse of the used illegal functions.
 
+/// @brief This function creates a new token in form of a linked list
+/// @param str The string that will be stored in the token
+/// @param typ The type of the token (w = word, | = pipe, > <= redirect)
+/// @param next The next token in the linked list
 typedef struct s_tokens
 {
 	char	*str;
@@ -56,6 +62,12 @@ void	catch_token(t_to **ken, t_to *new)
 	}
 }
 
+/// @brief This function creates a linked list of tokens
+/// first it skips all whitespaces, then it checks if the current
+/// character is a pipe, redirect or word. If it is a pipe or redirect
+/// it creates a token with the current character and adds it to the list.
+/// @param read is the string that will be tokenized
+/// @return ken is the linked list of tokens
 t_to	*to_ken_producer(const char *read)
 {
 	t_to 	*ken;
