@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/12 17:33:25 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/13 15:24:58 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_b built[] =
 	// {"export", b_export},
 	// {"unset", b_unset},
 	// {"env", b_env},
-	// {"exit", b_exit},
+	{"exit", b_exit},
 	{NULL, NULL}
 };
 
@@ -43,6 +43,7 @@ void	builtin(t_arr *arr, char **envp)
 			built[i].fun(arr, envp);
 			return ;
 		}
+		i++;
 	}
 	/// maybe some execution handling for non builtins ? exit maybe too xD
 }

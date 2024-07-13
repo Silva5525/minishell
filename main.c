@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/12 12:41:06 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/13 15:07:34 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,21 @@ void read_signal(int sig)
 	}
 }
 
-void main_process(char *read)
+void main_process(char *read, char **envp)
 {
 	t_arr *arr;
-	size_t i;
 
-	i = 0;
 	add_history(read);
-	if (ft_strcmp(read, "exit") == 0)
-	{
-		write(1, "exit\n", 5);
-		free(read);
-		return ;
-	}
+
 	printf("Out: %s\n", read);
 	arr = to_ken_producer(read);
-	while (i < arr->size)
-	{
-		printf("Token: %s Type: %c\n", arr->ken[i]->str, arr->ken[i]->typ);
-		i++;
-	}
+	builtin(arr, envp);
+	// int i = 0;
+	// while (i < arr->size)
+	// {
+	// 	printf("Token: %s Type: %c\n", arr->ken[i]->str, arr->ken[i]->typ);
+	// 	i++;
+	// }
 	free_tokens(arr);
 	free(read);
 }
@@ -63,7 +58,6 @@ int	main(int argc, char **argv, char **envp)
 	char	*read;
 	(void)argc;
 	(void)argv;
-	(void)envp;
 
 	signal(SIGINT, read_signal);
 	signal(SIGQUIT, SIG_IGN);
@@ -71,13 +65,11 @@ int	main(int argc, char **argv, char **envp)
 	{
 		read = readline("minishell$ ");
 		if (read)
-		{
-			main_process(read);
-		}
+			main_process(read, envp);
 		else
 		{
 			write(1, "exit\n", 5);
-			break;
+			break ;
 		}
 	}
 	return (0);

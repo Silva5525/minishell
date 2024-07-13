@@ -6,12 +6,14 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 18:27:22 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/12 12:40:14 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/12 12:57:55 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/// @brief 
+/// @param arr 
 void free_tokens(t_arr *arr)
 {
 	size_t i;
