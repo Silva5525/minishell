@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 18:27:22 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/12 12:57:55 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/13 16:22:49 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ void catch_token(t_arr *arr, t_to *ken)
 	if (arr->size == arr->max_size)
 	{
 		arr->max_size *= 2;
-		new_ken = realloc(arr->ken, sizeof(t_to *) * arr->max_size);
+		new_ken = ft_realloc(arr->ken, sizeof(t_to *) * arr->max_size / 2
+				, sizeof(t_to *) * arr->max_size);
 		if (!new_ken)
 		{
 			free_tokens(arr);

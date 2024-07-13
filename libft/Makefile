@@ -6,7 +6,7 @@
 #    By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/14 10:36:05 by wdegraf           #+#    #+#              #
-#    Updated: 2024/07/10 15:32:51 by wdegraf          ###   ########.fr        #
+#    Updated: 2024/07/13 16:31:56 by wdegraf          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_printf_xXpudi.c ft_printf.c ft_intlen.c \
 		get_next_line.c get_next_line_utils.c ft_lstiter_f_bonus.c \
 		ft_lstget.c ft_write.c ft_strcwords.c ft_ato_ssize_t.c \
-		ft_fill.c ft_strcmp.c ft_isspace.c \
+		ft_fill.c ft_strcmp.c ft_isspace.c ft_realloc.c\
 
 OBJS = $(SRCS:.c=.o)
 

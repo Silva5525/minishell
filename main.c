@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/13 15:07:34 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/13 16:35:56 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void main_process(char *read, char **envp)
 	printf("Out: %s\n", read);
 	arr = to_ken_producer(read);
 	builtin(arr, envp);
-	// int i = 0;
-	// while (i < arr->size)
-	// {
-	// 	printf("Token: %s Type: %c\n", arr->ken[i]->str, arr->ken[i]->typ);
-	// 	i++;
-	// }
+	size_t i = 0;
+	while ( i < arr->size)
+	{
+		printf("Token: %s Type: %c\n", arr->ken[i]->str, arr->ken[i]->typ);
+		i++;
+	}
 	free_tokens(arr);
 	free(read);
 }

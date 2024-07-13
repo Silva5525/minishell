@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/13 15:24:58 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/13 16:33:12 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_b built[] =
 void	builtin(t_arr *arr, char **envp)
 {
 	size_t	i;
-
+	
 	i = 0;
 	while (built[i].name)
 	{
