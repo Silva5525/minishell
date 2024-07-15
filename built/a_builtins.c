@@ -6,13 +6,13 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/13 16:33:12 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/14 16:36:02 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-typedef void (*built_f)(t_arr *arr, char **envp);
+typedef void (*built_f)(t_arr *arr);
 typedef struct s_builtin
 {
 	char	*name;
@@ -31,7 +31,7 @@ t_b built[] =
 	{NULL, NULL}
 };
 
-void	builtin(t_arr *arr, char **envp)
+void	builtin(t_arr *arr)
 {
 	size_t	i;
 	
@@ -40,7 +40,7 @@ void	builtin(t_arr *arr, char **envp)
 	{
 		if (ft_strcmp(arr->ken[0]->str, built[i].name) == 0)
 		{
-			built[i].fun(arr, envp);
+			built[i].fun(arr);
 			return ;
 		}
 		i++;

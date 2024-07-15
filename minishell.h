@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/13 15:10:48 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/14 16:36:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_tokens
 typedef struct s_arr
 {
 	t_to	**ken;
+	char	**envp;
 	size_t	size;
 	size_t	max_size;
 }	t_arr;
@@ -48,14 +49,14 @@ typedef struct s_ast
 }	t_ast;
 
 /// @brief ./built 
-void builtin(t_arr *arr, char **envp);
+void builtin(t_arr *arr);
 // void b_echo(t_arr *arr);
-void b_cd(t_arr *arr, char **envp);
+void b_cd(t_arr *arr);
 // void b_pwd(void);
-// void b_export(t_arr *arr, char **envp);
-// void b_unset(t_arr *arr, char **envp);
-// void b_env(char **envp);
-void b_exit(t_arr *arr, char **envp);
+// void b_export(t_arr *arr);
+// void b_unset(t_arr *arr);
+// void b_env(t_arr *arr);
+void b_exit(t_arr *arr);
 
 /// @param lexer.c
 
