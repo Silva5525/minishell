@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/14 20:32:05 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/16 23:31:56 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,45 @@ void main_process(char *read, char **envp)
 	free(read);
 }
 
+char	*direktory_minishell(void)
+{
+	char	*pwd;
+	const char	*ms;
+	char 	*out;
+	int		i;
+	int		j;
+	
+	out = (char *)malloc(sizeof(char) * (PATH_MAX + 11));
+	if (!out)
+	{
+		write(2, "Error, malloc failed in main\n", 30);
+		return (NULL);
+	}
+	pwd = getcwd(NULL, 0);
+	if (!pwd)
+	{
+		write(2, "Error, getcwd failed in main\n", 30);
+		return (NULL);
+	}
+	i = 0;
+	while (pwd[i] && i < PATH_MAX)
+	{
+		out[i] = pwd[i];
+		i++;
+	}
+	free(pwd);	
+	ms = " minishell$ ";
+	j = 0;
+	while (ms[j] && i < PATH_MAX + 11 - 1)
+	{
+		out[i] = ms[j];
+		i++;
+		j++;
+	}
+	out[i] = '\0';
+	return (out);	
+}
+
 /// @brief 
 /// @param argc Argument Count
 /// @param argv Argument Vector
@@ -63,6 +102,7 @@ void main_process(char *read, char **envp)
 int	main(int argc, char **argv, char **envp)
 {
 	char	*read;
+	char	*pwd;
 	(void)argc;
 	(void)argv;
 
@@ -70,7 +110,11 @@ int	main(int argc, char **argv, char **envp)
 	signal(SIGQUIT, SIG_IGN);
 	while (1)
 	{
-		read = readline("minishell$ ");
+		pwd = direktory_minishell();
+		if (!pwd)
+			return (1);
+		read = readline(pwd);
+		free(pwd);
 		if (read)
 			main_process(read, envp);
 		else

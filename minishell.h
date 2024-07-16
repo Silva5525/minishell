@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/16 14:51:34 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/16 15:08:01 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_arr
 {
 	t_to	**ken;
 	char	**envp;
+	char	*direktory;
 	size_t	size;
 	size_t	max_size;
 }	t_arr;

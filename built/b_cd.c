@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:05 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/14 20:59:46 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/16 15:14:37 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ static bool	ft_cd(char **argv)
 void b_cd(t_arr *arr)
 {
 	char		**argv;
+	char 		*new_direktory;
 	size_t		argc;
 	size_t		i;
 
@@ -72,6 +73,17 @@ void b_cd(t_arr *arr)
 		write(2, "Error, ft_cd in b_cd failed\n", 28);
 	else if (!ft_pwd())
 		write(2, "Error, ft_pwd in b_cd failed\n", 29);
+	else
+	{
+		new_direktory = getcwd(NULL, 0);
+		if (new_direktory)
+		{
+			printf("new directory: %s\n", new_direktory);
+			arr->direktory = new_direktory;
+		}
+		else
+			write(2, "Error, getcwd failed in b_cd\n", 30);
+	}
 	free(argv);
 }
 
