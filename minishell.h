@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/14 16:36:45 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/16 14:51:34 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,13 @@ typedef struct s_ast
 	struct s_ast	*right;
 	struct s_ast	*left;
 }	t_ast;
+
+typedef void (*built_f)(t_arr *arr);
+typedef struct s_builtin
+{
+	char	*name;
+	built_f	fun;
+}	t_b;
 
 /// @brief ./built 
 void builtin(t_arr *arr);

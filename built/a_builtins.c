@@ -6,20 +6,16 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/14 16:36:02 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/16 14:50:58 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-typedef void (*built_f)(t_arr *arr);
-typedef struct s_builtin
+void	builtin(t_arr *arr)
 {
-	char	*name;
-	built_f	fun;
-}	t_b;
-
-t_b built[] =
+	size_t	i;
+	t_b built[] =
 {
 	// {"echo", b_echo},
 	{"cd", b_cd},
@@ -31,10 +27,6 @@ t_b built[] =
 	{NULL, NULL}
 };
 
-void	builtin(t_arr *arr)
-{
-	size_t	i;
-	
 	i = 0;
 	while (built[i].name)
 	{
