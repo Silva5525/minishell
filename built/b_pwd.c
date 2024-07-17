@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:29 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/14 16:41:32 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/17 12:52:27 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 void b_pwd(t_arr *arr)
 {
 	(void)arr;
-	char working_directory[PATH_MAX];
 	
-	if (getcwd(working_directory, sizeof(working_directory)) != NULL)
-		printf("%s\n", working_directory);
+	if (getcwd(arr->direktory, sizeof(PATH_MAX)) != NULL)
+		printf("%s\n", arr->direktory);
 	else
 		write(2, "Error, b_pwd failed\n", 20);
 }

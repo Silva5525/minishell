@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/16 15:08:01 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/17 15:00:59 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ typedef struct s_arr
 	size_t	max_size;
 }	t_arr;
 
-typedef struct s_ast
-{
-	int				typ;
-	char			*str;
-	struct s_ast	*right;
-	struct s_ast	*left;
-}	t_ast;
+// typedef struct s_ast
+// {
+// 	int				typ;
+// 	char			*str;
+// 	struct s_ast	*right;
+// 	struct s_ast	*left;
+// }	t_ast;
 
 typedef void (*built_f)(t_arr *arr);
 typedef struct s_builtin
@@ -58,7 +58,7 @@ typedef struct s_builtin
 
 /// @brief ./built 
 void builtin(t_arr *arr);
-// void b_echo(t_arr *arr);
+void b_echo(t_arr *arr);
 void b_cd(t_arr *arr);
 // void b_pwd(void);
 // void b_export(t_arr *arr);

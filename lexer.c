@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 18:27:22 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/16 23:37:22 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/17 14:58:55 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,23 @@ void free_tokens(t_arr *arr)
 	size_t i;
 
 	i = 0;
+	if (!arr)
+		return ;
+	if (arr->direktory)
+		free(arr->direktory), arr->direktory = NULL;
 	while (i < arr->size)
 	{
-		free(arr->ken[i]->str);
-		free(arr->ken[i]);
+		if (arr->ken[i])
+		{
+			if (arr->ken[i]->str)
+				free(arr->ken[i]->str), arr->ken[i]->str = NULL;
+			free(arr->ken[i]), arr->ken[i] = NULL;
+		}
 		i++;
 	}
-	free(arr->ken);
-	free(arr);
+	if (arr->ken)
+		free(arr->ken), arr->ken = NULL;
+	free(arr), arr = NULL;
 }
 
 void catch_token(t_arr *arr, t_to *ken)
@@ -62,6 +71,8 @@ t_arr *flexible_arr(void)
 	}
 	arr->size = 0;
 	arr->max_size = 16;
+	arr->direktory = NULL;
+	arr->envp = NULL;
 	return (arr);
 }
 

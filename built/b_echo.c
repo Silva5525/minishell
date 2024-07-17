@@ -6,29 +6,29 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:06:40 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/12 14:09:29 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/17 11:49:21 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void b_echo(char **args)
+void b_echo(t_arr *arr)
 {
 	bool 	minus_nl;
 	size_t		i;
 
 	minus_nl = false;
 	i = 1;
-	if (args[1] && ft_strncmp(args[1], "-n", 2) == 0)
+	if (arr->ken[1] && ft_strncmp(arr->ken[1]->str, "-n", 2) == 0)
 	{
 		minus_nl = true;
-		args++;
+		i++;
 	}
-	while (args[i])
+	while (i < arr->size)
 	{
-		if (i > 1)
+		printf("%s", arr->ken[i]->str);
+		if (i < arr->size - 1)
 			printf(" ");
-		printf("%s", args[i]);
 	}
 	if (minus_nl == false)
 		printf("\n");

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/16 23:31:56 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/17 14:41:14 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,10 @@ int	main(int argc, char **argv, char **envp)
 	{
 		pwd = direktory_minishell();
 		if (!pwd)
-			return (1);
+		{
+			write(2, "Error, direktory_minishell in main\n", 35);
+			free(pwd);
+		}
 		read = readline(pwd);
 		free(pwd);
 		if (read)
