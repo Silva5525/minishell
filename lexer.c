@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 18:27:22 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 14:58:55 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:13:39 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ t_to	*list_token(char *val, int typ)
 	if (!ken->str)
 	{
 		free(ken);
-		write(2, "Error, list_token malloc\n", 25);
+		write(2, "Error, list_token malloc\n", 26);
 		return (NULL);
 	}
 	ken->typ = typ;

@@ -6,7 +6,7 @@
 #    By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 15:45:34 by wdegraf           #+#    #+#              #
-#    Updated: 2024/07/13 15:23:35 by wdegraf          ###   ########.fr        #
+#    Updated: 2024/07/17 21:21:19 by wdegraf          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ LIBS	:= -L$(LIBFT) -lft -lreadline
 
 SRCS	:= main.c lexer.c built/b_export.c built/b_cd.c built/b_echo.c \
 			built/b_pwd.c built/a_builtins.c built/b_exit.c built/b_env.c \
-			
+			built/b_unset.c
 OBJS	:= ${SRCS:.c=.o}
 
 all: libft $(NAME)

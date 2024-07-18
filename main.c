@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 14:41:14 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 19:31:39 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void main_process(char *read, char **envp)
 		write(2, "Error, to_ken_producer\n", 24);
 		return ;
 	}
+	alloc_envp(arr, envp);
 	arr->envp = envp;
 	builtin(arr);
 	size_t i = 0;

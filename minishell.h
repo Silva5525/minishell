@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 15:00:59 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/17 22:39:36 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,14 @@ typedef struct s_builtin
 }	t_b;
 
 /// @brief ./built 
-void builtin(t_arr *arr);
-void b_echo(t_arr *arr);
-void b_cd(t_arr *arr);
-// void b_pwd(void);
-// void b_export(t_arr *arr);
-// void b_unset(t_arr *arr);
-// void b_env(t_arr *arr);
-void b_exit(t_arr *arr);
+void	builtin(t_arr *arr);
+void	b_echo(t_arr *arr);
+void	b_cd(t_arr *arr);
+void	b_pwd(t_arr *arr);
+void	b_export(t_arr *arr);
+void	b_unset(t_arr *arr);
+void	b_env(t_arr *arr);
+void	b_exit(t_arr *arr);
 
 /// @param lexer.c
 

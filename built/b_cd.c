@@ -6,13 +6,18 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:05 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 14:33:44 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 19:16:12 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static bool	ft_pwd(void)
+/// @brief ft_pwd sets the PWD and OLDPWD environment variables with:
+/// getcwd to get the current working directory
+/// getenv to get the value of the environment variable PWD
+/// ft_setenv to set the value of the environment variable PWD
+/// @return true if successful, false otherwise
+static bool	ft_pwd(t_arr *arr)
 {
 	char		*pwd;
 	char		*oldpwd;
@@ -24,16 +29,21 @@ static bool	ft_pwd(void)
 	if (!oldpwd)
 		return (free(pwd),
 			write(2, "Error, getenv failed in set_pwd\n", 32), false);
-	if (setenv("OLDPWD", oldpwd, 1) == -1)
+	if (ft_setenv("OLDPWD", oldpwd, arr->envp, 0) == -1) 
 		return (free(pwd),
 			write(2, "Error, setenv failed in set_pwd\n", 33), false);
-	if (setenv("PWD", pwd, 1) == -1)
+	if (ft_setenv("PWD", pwd, arr->envp, 0) == -1)
 		return (free(pwd),
 			write(2, "Error, setenv failed in set_pwd\n", 33), false);
 	free(pwd);
 	return (true);
 }
 
+/// @brief ft cd changes the current working directory to the directory
+/// specified in the argument. If no argument is given, it changes the
+/// current working directory to the value of the HOME environment variable.
+/// @param argv specifies the directory to change to
+/// @return true if successful, false otherwise
 static bool	ft_cd(char **argv)
 {
 	if (!argv[1])
@@ -61,7 +71,7 @@ void b_cd(t_arr *arr)
 	{
 		write(2, "Error, malloc failed in b_cd\n", 29);
 		free_tokens(arr);
-		return ;
+		return;
 	}
 	while (i < argc)
 	{
@@ -69,9 +79,10 @@ void b_cd(t_arr *arr)
 		i++;
 	}
 	argv[argc] = NULL;
+
 	if (!ft_cd(argv))
 		write(2, "Error, ft_cd in b_cd failed\n", 28);
-	else if (!ft_pwd())
+	else if (!ft_pwd(arr))
 		write(2, "Error, ft_pwd in b_cd failed\n", 29);
 	else
 	{
@@ -86,10 +97,3 @@ void b_cd(t_arr *arr)
 	}
 	free(argv);
 }
-
-// void b_cd(t_arr *arr)
-// {
-// ///	(void)envp; needs a way biger implementation for pwd
-// 	if (!arr->ken[1]->str || chdir(arr->ken[1]->str) == -1)
-// 		write(2 ,"cd: No such file or directory\n", 30);
-// }

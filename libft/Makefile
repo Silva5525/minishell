@@ -6,7 +6,7 @@
 #    By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/14 10:36:05 by wdegraf           #+#    #+#              #
-#    Updated: 2024/07/13 16:31:56 by wdegraf          ###   ########.fr        #
+#    Updated: 2024/07/18 16:23:01 by wdegraf          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,11 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 		ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
 		ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
 		ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c \
-		ft_printf_xXpudi.c ft_printf.c ft_intlen.c \
+		ft_printf_xXpudi.c ft_printf.c ft_intlen.c ft_unsetenv.c \
 		get_next_line.c get_next_line_utils.c ft_lstiter_f_bonus.c \
 		ft_lstget.c ft_write.c ft_strcwords.c ft_ato_ssize_t.c \
-		ft_fill.c ft_strcmp.c ft_isspace.c ft_realloc.c\
+		ft_fill.c ft_strcmp.c ft_isspace.c ft_realloc.c ft_setenv.c \
+		ft_strcpy.c ft_strndup.c ft_strnlen.c ft_strncpy.c \
 
 OBJS = $(SRCS:.c=.o)
 

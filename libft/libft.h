@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:13:48 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/13 16:30:35 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 19:16:40 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+char	*ft_strncpy(char *dst, const char *src, size_t n);
+size_t	ft_strnlen(const char *str, size_t n);
+char	*ft_strndup(const char *src, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -54,6 +57,7 @@ void	*ft_memset(void *str, int value, size_t len);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_realloc(void *ptr, size_t old_size, size_t new_size);
 size_t	ft_strlen(const char *str);
+char	*ft_strcpy(char *dst, const char *src);
 size_t	ft_strlcpy(char *dst, const char *src, size_t ds);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strchr(const char *s, int c);
@@ -96,7 +100,8 @@ t_list	*ft_lstget(t_list *lst, int index);
 ssize_t	ft_strcwords(char *str, char delimeter);
 ssize_t	ft_ato_ssize_t(const char *str);
 void 	ft_fill(char **tab, t_xy size, t_xy begin);
-
+int		ft_unsetenv(const char *name, char **envp);
+int		ft_setenv(const char *str, const char *v, char **envp, int free_flag);
 ssize_t	ft_write(int fd, const void *buf, size_t count);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 14:33:50 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 15:48:12 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	builtin(t_arr *arr)
 	{
 		{"echo", b_echo},
 		{"cd", b_cd},
-		// {"pwd", b_pwd},
-		// {"export", b_export},
-		// {"unset", b_unset},
-		// {"env", b_env},
+		{"pwd", b_pwd},
+		{"export", b_export},
+		{"unset", b_unset},
+		{"env", b_env},
 		{"exit", b_exit},
 		{NULL, NULL}
 	};
