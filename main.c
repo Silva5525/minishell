@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 19:31:39 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:14:06 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,55 @@ void read_signal(int sig)
 	}
 }
 
-void main_process(char *read, char **envp)
+void alloc_envp(t_arr *arr, char **envp)
+{
+	size_t i;
+	size_t j;
+	size_t k;
+
+	if (arr->first_time)
+	{
+		arr->envp = envp;
+		return ;
+	}
+	i = 0;
+	while (envp[i])
+		i++;
+	arr->envp = (char **)malloc(sizeof(char *) * (i + 1));
+	if (!arr->envp)
+	{
+		write(2, "Error, malloc failed in alloc_envp\n", 35);
+		free_tokens(arr);
+		exit(EXIT_FAILURE);
+	}
+	j = 0;
+	k = 0;
+	while (j < i)
+	{
+		arr->envp[j] = strdup(envp[j]);
+		if (!arr->envp[j])
+		{
+			write(2, "Error, malloc failed in alloc_envp\n", 35);
+			while (k < j)
+			{
+				free(arr->envp[k]);
+				arr->envp[k] = NULL;
+				k++;
+			}
+			free(arr->envp);
+			free_tokens(arr);
+			exit(EXIT_FAILURE);
+		}
+		j++;
+	}
+	arr->envp[i] = NULL;
+}
+
+void main_process(char *read, char **envp, bool first_time)
 {
 	t_arr *arr;
 
 	add_history(read);
-
 	printf("Out: %s\n", read);
 	arr = to_ken_producer(read);
 	if (!arr)
@@ -43,8 +86,8 @@ void main_process(char *read, char **envp)
 		write(2, "Error, to_ken_producer\n", 24);
 		return ;
 	}
+	arr->first_time = first_time;
 	alloc_envp(arr, envp);
-	arr->envp = envp;
 	builtin(arr);
 	size_t i = 0;
 	while ( i < arr->size)
@@ -104,11 +147,13 @@ int	main(int argc, char **argv, char **envp)
 {
 	char	*read;
 	char	*pwd;
+	bool	first_time;
 	(void)argc;
 	(void)argv;
 
 	signal(SIGINT, read_signal);
 	signal(SIGQUIT, SIG_IGN);
+	first_time = true;
 	while (1)
 	{
 		pwd = direktory_minishell();
@@ -120,12 +165,13 @@ int	main(int argc, char **argv, char **envp)
 		read = readline(pwd);
 		free(pwd);
 		if (read)
-			main_process(read, envp);
+			main_process(read, envp, first_time);
 		else
 		{
 			write(1, "exit\n", 5);
 			break ;
 		}
+		first_time = false;
 	}
 	return (0);
 }

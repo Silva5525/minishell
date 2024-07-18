@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:05 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 19:16:12 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:32:25 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /// @brief ft_pwd sets the PWD and OLDPWD environment variables with:
 /// getcwd to get the current working directory
 /// getenv to get the value of the environment variable PWD
-/// ft_setenv to set the value of the environment variable PWD
+/// ft_etenv to set the value of the environment variable PWD
 /// @return true if successful, false otherwise
 static bool	ft_pwd(t_arr *arr)
 {
@@ -29,10 +29,10 @@ static bool	ft_pwd(t_arr *arr)
 	if (!oldpwd)
 		return (free(pwd),
 			write(2, "Error, getenv failed in set_pwd\n", 32), false);
-	if (ft_setenv("OLDPWD", oldpwd, arr->envp, 0) == -1) 
+	if (ft_arr_setenv("OLDPWD", oldpwd, arr->envp, arr) == -1) 
 		return (free(pwd),
 			write(2, "Error, setenv failed in set_pwd\n", 33), false);
-	if (ft_setenv("PWD", pwd, arr->envp, 0) == -1)
+	if (ft_arr_setenv("PWD", pwd, arr->envp, arr) == -1)
 		return (free(pwd),
 			write(2, "Error, setenv failed in set_pwd\n", 33), false);
 	free(pwd);

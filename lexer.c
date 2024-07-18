@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 18:27:22 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 21:13:39 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:23:01 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,18 @@ void free_tokens(t_arr *arr)
 		return ;
 	if (arr->direktory)
 		free(arr->direktory), arr->direktory = NULL;
+	if (!arr->first_time && arr->envp)
+	{
+		i = 0;
+		while (arr->envp[i])
+		{
+			free(arr->envp[i]);
+			arr->envp[i] = NULL;
+			i++;
+		}
+		free(arr->envp), arr->envp = NULL;
+	}
+	i = 0;
 	while (i < arr->size)
 	{
 		if (arr->ken[i])

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:54 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 19:15:59 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:32:01 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ void	b_export(t_arr *arr)
 		if (tmp)
 		{
 			tmp++;
-			if (ft_setenv(str, tmp, arr->envp, 0) == -1)
+			if (ft_arr_setenv(str, tmp, arr->envp, arr) == -1)
 			{
-				write(2, "Error, ft_setenv in b_export\n", 30);
+				write(2, "Error, ft_arr_setenv in b_export\n", 33);
 				free(str);
 				free_tokens(arr);
 				exit(EXIT_FAILURE);
@@ -36,9 +36,9 @@ void	b_export(t_arr *arr)
 		}
 		else
 		{
-			if (ft_setenv(str, "", arr->envp, 1) == -1)
+			if (ft_arr_setenv(str, "", arr->envp, arr) == -1)
 			{
-				write(2, "Error, ft_setenv in b_export\n", 30);
+				write(2, "Error, ft_arr_setenv in b_export\n", 33);
 				free(str);
 				free_tokens(arr);
 				exit(EXIT_FAILURE);

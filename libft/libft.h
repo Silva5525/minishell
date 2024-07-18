@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:13:48 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 19:16:40 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 20:19:24 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ ssize_t	ft_strcwords(char *str, char delimeter);
 ssize_t	ft_ato_ssize_t(const char *str);
 void 	ft_fill(char **tab, t_xy size, t_xy begin);
 int		ft_unsetenv(const char *name, char **envp);
-int		ft_setenv(const char *str, const char *v, char **envp, int free_flag);
+int		ft_setenv(const char *str, const char *v, char **envp);
 ssize_t	ft_write(int fd, const void *buf, size_t count);
 
 #endif

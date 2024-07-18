@@ -6,34 +6,11 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 21:34:14 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 19:16:58 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:20:06 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-/// @brief free the memory of the string, variable or environment array.
-/// depending on the free_flag.
-/// @param str string to free.
-/// @param v variable to free.
-/// @param envp environment array to free.
-/// @param free_flag flag to determine what to free.
-static void ask_free( const char *str, const char *v, char **envp, int free_flag)
-{
-	if (free_flag == 1)
-		free((char *)str);
-	else if (free_flag == 2)
-		free((char *)v);
-	else if (free_flag == 3)
-	{
-		while (*envp)
-		{
-			free(*envp);
-			envp++;
-		}
-		free(envp);
-	}
-}
 
 /// @brief own implementation of setenv from stdlib.c
 /// Checks if *str is valid then searches for the *v variable in the envp array.
@@ -43,7 +20,7 @@ static void ask_free( const char *str, const char *v, char **envp, int free_flag
 /// @param v value of the environment variable to set.
 /// @param envp the enviroment array.
 /// @return 0 on success, -1 on error.
-int	ft_setenv(const char *str, const char *v, char **envp, int free_flag)
+int	ft_setenv(const char *str, const char *v, char **envp)
 {
 	char	*new;
 	char 	*hold;
@@ -57,11 +34,14 @@ int	ft_setenv(const char *str, const char *v, char **envp, int free_flag)
 	while (envp[i])
 	{
 		if (ft_strncmp(envp[i], str, len) == 0 && envp[i][len] == '=')
-			break;
+		{
+			if (envp[i])
+				free(envp[i]);
+			break ;
+		}
 		i++;
 	}
 	hold = ft_strjoin(str, "=");
-	
 	if (!hold)
 		return (-1);
 	new = ft_strjoin(hold, v);
@@ -69,8 +49,6 @@ int	ft_setenv(const char *str, const char *v, char **envp, int free_flag)
 	if (!new)
 		return (-1);
 	envp[i] = new;
-	envp[i + 1] = NULL;
-	ask_free(str, v, envp, free_flag);
 	return (0);
 }
 

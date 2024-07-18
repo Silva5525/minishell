@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 22:39:36 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:33:13 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_arr
 	char	*direktory;
 	size_t	size;
 	size_t	max_size;
+	bool	first_time;
 }	t_arr;
 
 // typedef struct s_ast
@@ -70,5 +71,8 @@ void	b_exit(t_arr *arr);
 
 t_arr	*to_ken_producer(const char *read);
 void	free_tokens(t_arr *arr);
+
+/// @param built/a_builtins.c
+int	ft_arr_setenv(const char *str, const char *v, char **envp, t_arr *arr);
 
 #endif
