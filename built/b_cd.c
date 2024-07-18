@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:05 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 21:32:25 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 22:40:47 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void b_cd(t_arr *arr)
 		if (new_direktory)
 		{
 			printf("new directory: %s\n", new_direktory);
+			free(arr->direktory);
 			arr->direktory = new_direktory;
 		}
 		else

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 19:55:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/12 12:33:27 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 23:13:52 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strdup(const char *s1)
 	size_t	i;
 
 	i = 0;
+	if (!s1)
+		return (NULL);
 	l = ft_strlen(s1);
 	a = (char *)malloc((l + 1) * sizeof(char));
 	if (!a)

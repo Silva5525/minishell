@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 21:14:06 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/18 23:16:49 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void read_signal(int sig)
 		rl_redisplay();
 	}
 }
+
 
 void alloc_envp(t_arr *arr, char **envp)
 {
@@ -54,7 +55,7 @@ void alloc_envp(t_arr *arr, char **envp)
 	k = 0;
 	while (j < i)
 	{
-		arr->envp[j] = strdup(envp[j]);
+		arr->envp[j] = ft_strdup(envp[j]);
 		if (!arr->envp[j])
 		{
 			write(2, "Error, malloc failed in alloc_envp\n", 35);
