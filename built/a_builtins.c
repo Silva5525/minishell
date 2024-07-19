@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 13:19:03 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/19 14:39:59 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 /// @param v value of the environment variable to set.
 /// @param envp the enviroment array.
 /// @return 0 on success, -1 on error.
-int	ft_arr_setenv(const char *str, const char *v, char **envp, t_arr *arr)
+char	**ft_arr_setenv(const char *str, const char *v, char **envp, bool first_time)
 {
 	char	*new;
 	char 	*hold;
@@ -29,14 +29,14 @@ int	ft_arr_setenv(const char *str, const char *v, char **envp, t_arr *arr)
 	int 	len;
 
 	if (!str || !v || ft_strchr(str, '=') != NULL || *str == '\0')
-		return (-1);
+		return (NULL);
 	len = ft_strlen(str);
 	i = 0;
 	while (envp[i])
 	{
 		if (ft_strncmp(envp[i], str, len) == 0 && envp[i][len] == '=')
 		{
-			if (!arr->first_time)
+			if (!first_time)
 				free(envp[i]);
 			break ;
 		}
@@ -44,21 +44,23 @@ int	ft_arr_setenv(const char *str, const char *v, char **envp, t_arr *arr)
 	}
 	hold = ft_strjoin(str, "=");
 	if (!hold)
-		return (-1);
+		return (NULL);
 	new = ft_strjoin(hold, v);
 	free(hold);
 	if (!new)
-		return (-1);
+		return (NULL);
 	if (!envp[i])
 	{
-		if (!arr->first_time)
+		if (!first_time)
+		{
 			envp = ft_realloc(envp, sizeof(char *) * (i + 1) ,sizeof(char *) * (i + 2));
-		if (!envp)
-			return (free(new), -1);
+			if (!envp)
+				return (free(new), NULL);
+		}
 		envp[i + 1] = NULL;
 	}
 	envp[i] = new;
-	return (0);
+	return (envp);
 }
 
 void	builtin(t_arr *arr)

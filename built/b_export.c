@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:54 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 13:10:06 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/19 14:43:56 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	b_export(t_arr *arr)
 	size_t	i;
 	char	*str;
 	char	*tmp;
+	char 	**new_envp;
 
 	i = 1;
 	while (i < arr->size)
@@ -32,23 +33,27 @@ void	b_export(t_arr *arr)
 		if (tmp)
 		{
 			tmp++;
-			if (ft_arr_setenv(str, tmp, arr->envp, arr) == -1)
+			new_envp = ft_arr_setenv(str, tmp, arr->envp, arr->first_time);
+			if (!new_envp)
 			{
 				write(2, "Error, ft_arr_setenv in b_export\n", 33);
 				free(str);
 				free_tokens(arr);
 				exit(EXIT_FAILURE);
 			}
+			arr->envp = new_envp;
 		}
 		else
 		{
-			if (ft_arr_setenv(str, "", arr->envp, arr) == -1)
+			new_envp = ft_arr_setenv(str, "", arr->envp, arr->first_time);
+			if (!new_envp)
 			{
 				write(2, "Error, ft_arr_setenv in b_export\n", 33);
 				free(str);
 				free_tokens(arr);
 				exit(EXIT_FAILURE);
 			}
+			arr->envp = new_envp;
 		}
 		free(str);
 		i++;

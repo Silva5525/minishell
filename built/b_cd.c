@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:05 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 12:49:12 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/19 14:38:22 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,26 @@ static bool	ft_pwd(t_arr *arr)
 {
 	char		*pwd;
 	char		*oldpwd;
+	char		**new_envp;
 
 	pwd = getcwd(NULL, 0);
 	oldpwd = getenv("PWD");
+	
 	if (!pwd)
 		return (write(2, "Error, getcwd failed in set_pwd\n", 32), false);
 	if (!oldpwd)
 		return (free(pwd),
 			write(2, "Error, getenv failed in set_pwd\n", 32), false);
-	if (ft_arr_setenv("OLDPWD", oldpwd, arr->envp, arr) == -1) 
+	new_envp = ft_arr_setenv("OLDPWD", oldpwd, arr->envp, arr->first_time);
+	if (!new_envp) 
 		return (free(pwd),
 			write(2, "Error, setenv failed in set_pwd\n", 33), false);
-	if (ft_arr_setenv("PWD", pwd, arr->envp, arr) == -1)
+	arr->envp = new_envp;
+	new_envp = ft_arr_setenv("PWD", pwd, arr->envp, arr->first_time);
+	if (!new_envp)
 		return (free(pwd),
 			write(2, "Error, setenv failed in set_pwd\n", 33), false);
+	arr->envp = new_envp;
 	free(pwd);
 	return (true);
 }
