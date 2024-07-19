@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 23:32:07 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/19 13:19:03 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	ft_arr_setenv(const char *str, const char *v, char **envp, t_arr *arr)
 		return (-1);
 	if (!envp[i])
 	{
-		envp = ft_realloc(envp, sizeof(char *) * (i + 1) ,sizeof(char *) * (i + 2));
+		if (!arr->first_time)
+			envp = ft_realloc(envp, sizeof(char *) * (i + 1) ,sizeof(char *) * (i + 2));
 		if (!envp)
 			return (free(new), -1);
 		envp[i + 1] = NULL;

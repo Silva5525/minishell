@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 21:33:13 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/19 12:48:43 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ typedef struct s_builtin
 	built_f	fun;
 }	t_b;
 
-/// @brief ./built 
+/// ########################################## @brief./built #################################################
+/// 
+
 void	builtin(t_arr *arr);
 void	b_echo(t_arr *arr);
 void	b_cd(t_arr *arr);
@@ -67,12 +69,16 @@ void	b_unset(t_arr *arr);
 void	b_env(t_arr *arr);
 void	b_exit(t_arr *arr);
 
+/// @param built/a_builtins.c
+
+int	ft_arr_setenv(const char *str, const char *v, char **envp, t_arr *arr);
+
+/// ########################################## @brief Sources ################################################
+
 /// @param lexer.c
 
 t_arr	*to_ken_producer(const char *read);
 void	free_tokens(t_arr *arr);
 
-/// @param built/a_builtins.c
-int	ft_arr_setenv(const char *str, const char *v, char **envp, t_arr *arr);
 
 #endif
