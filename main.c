@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 23:16:49 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/19 17:31:42 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,14 @@ void alloc_envp(t_arr *arr, char **envp)
 
 void main_process(char *read, char **envp, bool first_time)
 {
-	t_arr *arr;
+	t_arr	*arr;
+	char	*expand_r;
 
 	add_history(read);
-	printf("Out: %s\n", read);
-	arr = to_ken_producer(read);
+	expand_r = expanding_env(read, envp);
+	printf("Out: %s\n", expand_r);
+	arr = to_ken_producer(expand_r);
+	free(expand_r);
 	if (!arr)
 	{
 		free(read);

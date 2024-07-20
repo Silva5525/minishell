@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 14:40:28 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/19 17:31:14 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,8 @@ char	**ft_arr_setenv(const char *str, const char *v, char **envp, bool first_tim
 t_arr	*to_ken_producer(const char *read);
 void	free_tokens(t_arr *arr);
 
+/// @param expand.c
+
+char	*expanding_env(char *read, char **envp);
 
 #endif

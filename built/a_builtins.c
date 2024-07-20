@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 14:39:59 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/07/19 16:30:50 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@
 /// @param str the name of the environment variable to set.
 /// @param v value of the environment variable to set.
 /// @param envp the enviroment array.
-/// @return 0 on success, -1 on error.
+/// @param first_time if true, the function will not free the old envp.
+/// @return the new envp array or NULL if an error occurred.
 char	**ft_arr_setenv(const char *str, const char *v, char **envp, bool first_time)
 {
 	char	*new;
