@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 20:46:17 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 18:14:09 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 // 	printf("%s\n", s2);
 // 	free ((void *)s2);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

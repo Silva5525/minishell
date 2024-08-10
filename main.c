@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 17:31:42 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,5 +177,5 @@ int	main(int argc, char **argv, char **envp)
 		}
 		first_time = false;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }

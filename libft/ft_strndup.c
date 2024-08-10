@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/18 15:49:03 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 15:56:58 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,5 @@ char	*ft_strndup(const char *src, size_t n)
 // 	printf("Original: %s\n", src);
 // 	printf("Duplicate: %s\n", dup);
 // 	free(dup);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

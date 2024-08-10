@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:40:07 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/03/28 13:32:34 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ int	ft_lstsize(t_list *lst)
 // 	free(node1);
 // 	free(node2);
 // 	free(node3);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

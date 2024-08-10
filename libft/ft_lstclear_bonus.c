@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 13:04:32 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 15:46:19 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 //     free(node1);
 //     free(node2);
 //     free(node3);
-//     return (0);
+//     return (EXIT_SUCCESS);
 // }

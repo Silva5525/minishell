@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 19:41:02 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/03/05 21:18:49 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,5 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 // 	free(node2);
 // 	free(node3);
 // 	free(new);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

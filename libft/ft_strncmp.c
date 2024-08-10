@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 17:45:31 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/14 12:15:20 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		c++;
 	}
 	if (n == c)
-		return (0);
-	return (0);
+		return (EXIT_SUCCESS);
+	return (EXIT_SUCCESS);
 }
 
 // #include <stdio.h>

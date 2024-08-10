@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/16 18:26:35 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 16:25:33 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 // 		printf("memchr: Found '%c' at positigon %ld\n", sC, out - str);
 // 	else
 // 		printf ("'%c' not found in this String.\n", sC);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

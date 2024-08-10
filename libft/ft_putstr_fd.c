@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 23:25:44 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 16:55:44 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:43:17 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ void	ft_putstr_fd(char *s, int fd)
 // 	if (file_descriptor == -1)
 // 	{
 // 		perror("Failed");
-// 		return (1);
+// 		return (EXIT_FAILURE);
 // 	}
 // 	ft_putstr_fd(c, file_descriptor);
 // 	close(file_descriptor);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

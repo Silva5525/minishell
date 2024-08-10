@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 13:16:56 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/02/20 19:47:18 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:43:17 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,17 +63,17 @@ static int	ft_read(int fd, t_struct *file)
 	{
 		ret = read(fd, buf, BUFFER_SIZE);
 		if (ret < 0)
-			return (0);
+			return (EXIT_SUCCESS);
 		file->swich = ret != BUFFER_SIZE;
 		buf[ret] = '\0';
 		hold = ft_strjoin2(file->content, buf);
 		if (!hold)
-			return (0);
+			return (EXIT_SUCCESS);
 		if (file->content)
 			free(file->content);
 		file->content = hold;
 	}
-	return (1);
+	return (EXIT_FAILURE);
 }
 
 /// @brief frees the content of the file struct and sets the

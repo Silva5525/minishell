@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:06:24 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 18:16:31 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ int	ft_toupper(int c)
 // 	c = 'a';
 //     res = ft_toupper((unsigned char) c);
 // 	printf("%c", res);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

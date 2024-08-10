@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 23:27:17 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/05/17 22:59:35 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ ssize_t	ft_ato_ssize_t(const char *str)
 			reverse = -1;
 		str++;
 		if (*str == '-' || *str == '+')
-			return (0);
+			return (EXIT_SUCCESS);
 	}
 	while (*str >= '0' && *str <= '9')
 	{
@@ -41,7 +41,7 @@ ssize_t	ft_ato_ssize_t(const char *str)
 		str++;
 	}
 	if (*str != '\0' && (*str <= '0' && *str >= '9'))
-		return (0);
+		return (EXIT_SUCCESS);
 	return (hold * reverse);
 }
 
@@ -51,5 +51,5 @@ ssize_t	ft_ato_ssize_t(const char *str)
 // 	char	str[] = "+-54";
 // 	int out = ft_atoi(str);
 // 	printf("%d\n", out);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

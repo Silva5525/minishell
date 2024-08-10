@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 11:03:35 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 17:32:00 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 // 	printf("Original = %s\n", str);
 // 	ft_striteri(str, my_stuff);
 // 	printf("Mod = %s\n", str);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

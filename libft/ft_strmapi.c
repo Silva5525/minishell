@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 23:11:08 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/14 12:15:03 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,5 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 // 		printf("Result: %s\n", out);
 // 		free(out);
 // 	}
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

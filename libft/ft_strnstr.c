@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 21:58:47 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/14 12:16:09 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,5 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 // char haystack[30] = "aaabcabcd";
 // printf("%i\n", ft_strnstr(haystack, "abcd", 9) == haystack + 6);
 // printf("%s\n", ft_strnstr(haystack, "abcd", 9));
-// return (0);
+// return (EXIT_SUCCESS);
 // }

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 19:42:50 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 17:33:18 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ int ft_unsetenv(const char *str, char **envp)
 				envp[i] = envp[i + 1];
 				i++;
 			}
-			return (0);
+			return (EXIT_SUCCESS);
 		}
 		i++;
 	}
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 // // ########################################### test main###################
@@ -73,5 +73,5 @@ int ft_unsetenv(const char *str, char **envp)
 
 // 	printf("\nAfter unsetenv:\n");
 // 	print_env(envp);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

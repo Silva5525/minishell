@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 22:03:56 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 22:14:01 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ char *ft_strcpy(char *dst, const char *src)
 // 	printf("Garbage dst: %s\n", dst);
 // 	ft_strcpy(dst, src);
 // 	printf("dst: %s\n", dst);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

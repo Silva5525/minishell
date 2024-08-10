@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 19:41:01 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/05/21 14:25:41 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,5 @@ void ft_fill(char **tab, t_xy size, t_xy begin)
 // 		printf("%s\n", area[i]);
 // 		i++;
 // 	}
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

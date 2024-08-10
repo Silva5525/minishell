@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:51:47 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/14 12:35:57 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 // 	ft_memmove(dest, str+8, sizeof(char) * 4);
 // 	printf("dest: %s\n", dest);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }
 
 // test b:

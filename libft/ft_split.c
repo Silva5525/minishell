@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 22:01:03 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/05/18 12:45:11 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,9 +152,9 @@ char	**ft_split(const char *s, char c)
 // 			i++;
 // 		}
 // 		free(out);
-// 		return (0);
+// 		return (EXIT_SUCCESS);
 // 	}
 // 	else
 // 		printf("Allocation failed.\n");
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

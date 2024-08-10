@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/21 16:06:16 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/01/24 12:32:09 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:43:17 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_intlen(int n)
 
 	len = 0;
 	if (n == 0)
-		return (1);
+		return (EXIT_FAILURE);
 	if (n < 0)
 	{
 		len++;

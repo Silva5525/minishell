@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/23 18:07:56 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/05/20 19:32:00 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,5 +120,5 @@ char	*ft_itoa(int n)
 // 	int_c = ft_itoa(n);
 // 	printf("%s\n", int_c);
 // 	free(int_c);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

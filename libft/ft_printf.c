@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 18:42:59 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/01/21 12:19:08 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:43:17 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	v_remix(char format, va_list *args, ssize_t *wr_i)
 		*wr_i = write(1, "%", 1);
 		if (*wr_i == -1)
 			return (-1);
-		return (1);
+		return (EXIT_FAILURE);
 	}
 	else
 		return (-1);
@@ -135,5 +135,5 @@ int	ft_printf(const char *format, ...)
 // 	a = ft_printf("a%%");
 // 	b = printf("b%%");
 // 	printf("my %i test %i\n", a, b);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 13:28:50 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 15:45:59 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:43:17 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 int	ft_isascii(int a)
 {
 	if (a >= 0 && a <= 127)
-		return (1);
+		return (EXIT_FAILURE);
 	else
-		return (0);
+		return (EXIT_SUCCESS);
 }
 
 // #include <stdio.h>
@@ -29,5 +29,5 @@ int	ft_isascii(int a)
 // 	char	a = 128;
 // 	int	out = ft_isascii(a);
 // 	printf("%i", out);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

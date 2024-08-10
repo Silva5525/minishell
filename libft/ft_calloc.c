@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 11:40:52 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 18:53:05 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,5 @@ void	*ft_calloc(size_t count, size_t size)
 // 		i++;
 // 	}
 // 	free(out);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

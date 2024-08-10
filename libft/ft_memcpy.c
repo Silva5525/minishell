@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 21:30:38 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/02/20 19:45:41 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t len)
 // 	char	dest[27];
 // 	ft_memcpy(dest, str+8, sizeof(char) * 4);
 // 	printf("dest: %s\n", dest);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }
 
 // int main()

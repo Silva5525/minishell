@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 19:00:58 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/14 12:14:33 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 // 	char	src[] = "Use a Towel!";
 // 	ft_strlcat(dst, src, strlen(dst));
 // 	printf("Formatted: %s\n", dst);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

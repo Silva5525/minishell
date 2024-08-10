@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 11:55:12 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 15:46:39 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*))
 //     ft_lstdelone(head, del);
 //     printf("Linked List after clearing: ");
 //     print_list(head);
-//     return (0);
+//     return (EXIT_SUCCESS);
 // }

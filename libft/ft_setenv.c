@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 21:34:14 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 21:20:06 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_setenv(const char *str, const char *v, char **envp)
 	if (!new)
 		return (-1);
 	envp[i] = new;
-	return (0);
+	return (EXIT_SUCCESS);
 }
 
 // /// ########################################### test main###################
@@ -75,5 +75,5 @@ int	ft_setenv(const char *str, const char *v, char **envp)
 // 	ft_setenv("TEST_VAR", "test", envp);
 // 	printf("After setenv:\n");
 // 	print_env(envp);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

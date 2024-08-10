@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mahakala <mahakala@student.42.fr>          +#+  +:+       +#+        */
+/*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 15:13:01 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/04/15 10:38:44 by mahakala         ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ size_t	ft_strlen(const char *s)
 // 	char	str[] = "abcdefergg";
 // 	int	out = ft_strlen(str);
 // 	printf("%i", out);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

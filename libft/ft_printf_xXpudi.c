@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 16:26:11 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/01/21 13:19:37 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:43:17 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ int	v_di(va_list *args)
 		wr_i = write(1, "0", 1);
 		if (wr_i == -1)
 			return (-1);
-		return (1);
+		return (EXIT_FAILURE);
 	}
 	di = ft_itoa(i);
 	if (!di)

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 16:30:30 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 18:12:12 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,5 @@ char	*ft_strtrim(char const *s1, char const *set)
 // char const	*s2 = ft_strtrim(s1, set);
 // printf("%s", s2);
 // free((void *)s2);
-// return (0);
+// return (EXIT_SUCCESS);
 // }

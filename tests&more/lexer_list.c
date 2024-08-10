@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:56:44 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/12 10:12:18 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,5 +130,5 @@ void	free_kens(t_to *ken)
 // 		arr = arr->next;
 // 	}
 // 	free_kens(arr);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

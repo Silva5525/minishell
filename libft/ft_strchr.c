@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:51:29 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/02/20 19:24:08 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,5 @@ char	*ft_strchr(const char *s, int c)
 // 		printf("Found '%c' at position %ld.\n", c, out - s);
 // 	else
 // 		printf ("'%c' not found in this String.\n", c);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

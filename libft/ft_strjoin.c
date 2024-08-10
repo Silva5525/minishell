@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 21:21:59 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 19:25:20 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:43:17 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 // 	if (s3 == NULL)
 // 	{
 // 		printf("malloc failed.\n");
-// 		return (1);
+// 		return (EXIT_FAILURE);
 // 	}
 // 	printf("%s", s3);
 // 	free((void *)s3);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

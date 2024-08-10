@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:09:52 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 15:45:55 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:43:17 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@
 int	ft_isalpha(int a)
 {
 	if ((a >= 'a') && (a <= 'z'))
-		return (1);
+		return (EXIT_FAILURE);
 	else if ((a >= 'A') && (a <= 'Z'))
-		return (1);
+		return (EXIT_FAILURE);
 	else
-		return (0);
+		return (EXIT_SUCCESS);
 }
 
 // #include <stdio.h>
@@ -33,5 +33,5 @@ int	ft_isalpha(int a)
 // 	a = '1';
 // 	int out = ft_isalpha(a);
 // 	printf("%i", out);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

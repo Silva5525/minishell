@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:10:11 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/14 12:13:37 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,5 @@ void	*ft_memset(void *b, int c, size_t len)
 // 		printf("str[%zu] = %u\n", i, str[i]);
 // 		i++;
 // 	}
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

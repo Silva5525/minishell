@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:00:19 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/06 13:50:43 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ int	ft_strcmp(const char *s1, const char *s2)
 // 	char *s1 = "Hello";
 // 	char *s2 = "Helo";
 // 	printf("Result: %d\n", ft_strcmp(s1, s2));
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }

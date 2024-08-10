@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:49:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2023/11/09 18:15:32 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ int	ft_tolower(int c)
 // 	char	b = 'P';
 // 	b = ft_tolower(b);
 // 	printf("%c\n", b);
-// 	return (0);
+// 	return (EXIT_SUCCESS);
 // }
