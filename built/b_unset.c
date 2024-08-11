@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:08:14 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/17 21:23:35 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/11 16:54:23 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	b_unset(t_arr *arr)
 	i = 1;
 	while (i < arr->size)
 	{
-		if (ft_unsetenv(arr->ken[i]->str, arr->envp) == -1)
+		if (ft_unsetenv(arr->ken[i]->str[0], arr->envp) == -1)
 		{
 			write(2, "Error, ft_unsetenv in b_unset\n", 30);
 			free_tokens(arr);

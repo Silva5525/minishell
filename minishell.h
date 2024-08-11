@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 17:31:14 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/11 16:25:51 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,24 @@
 
 #include "libft/libft.h"
 
+/// @brief struct for the tokens
+/// @param str the token
+/// @param typ the type of the tokens
 typedef struct s_tokens
 {
-	char	*str;
+	char	**str;
 	int		typ;
 }	t_to;
 
+/// @brief struct for the minishell
+/// @param ken array of tokens
+/// @param envp environment variables
+/// @param direktory current working directory
+/// @param size number of tokens
+/// @param max_size maximum number of tokens before resizing arr
+/// @param in_fd file descriptor for input
+/// @param out_fd file descriptor for output
+/// @param first_time if true envp will be set to the envp (leak handling)
 typedef struct s_arr
 {
 	t_to	**ken;
@@ -39,6 +51,8 @@ typedef struct s_arr
 	char	*direktory;
 	size_t	size;
 	size_t	max_size;
+	int		in_fd;
+	int		out_fd;
 	bool	first_time;
 }	t_arr;
 

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:05 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 14:38:22 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/11 16:54:00 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void b_cd(t_arr *arr)
 	}
 	while (i < argc)
 	{
-		argv[i] = arr->ken[i]->str;
+		argv[i] = arr->ken[i]->str[0];
 		i++;
 	}
 	argv[argc] = NULL;

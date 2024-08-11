@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 16:30:50 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/11 16:21:18 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	builtin(t_arr *arr)
 	i = 0;
 	while (built[i].name)
 	{
-		if (ft_strcmp(arr->ken[0]->str, built[i].name) == 0)
+		if (ft_strcmp(arr->ken[0]->str[0], built[i].name) == 0)
 		{
 			built[i].fun(arr);
 			return ;

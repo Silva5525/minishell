@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:07:54 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/19 16:09:04 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/11 16:53:30 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ void	b_export(t_arr *arr)
 	i = 1;
 	while (i < arr->size)
 	{
-		str = ft_strndup(arr->ken[i]->str, ft_strchr(arr->ken[i]->str, '=') - arr->ken[i]->str);
-		if (!str)
+		str = ft_strndup(arr->ken[i]->str[0], ft_strchr(arr->ken[i]->str[0], '=') - arr->ken[i]->str[0]);
+		if (!str[0])
 		{
 			write(2, "Error, ft_strndup in b_export\n", 31);
 			free_tokens(arr);
 			exit(EXIT_FAILURE);
 		}
-		tmp = ft_strchr(arr->ken[i]->str, '=');
+		tmp = ft_strchr(arr->ken[i]->str[0], '=');
 		if (tmp)
 		{
 			tmp++;

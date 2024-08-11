@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/12 14:13:48 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/18 20:19:24 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/11 15:39:59 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include <stdint.h>
+# include <stdbool.h>
 # include "get_next_line.h"
 
 /// @brief coordinations struct for ft_fill.c 
@@ -98,10 +99,13 @@ int		ft_intlen(int n);
 void	ft_lstiter_ptr(t_list *lst, void (*f)(void *, void *), void *ptr);
 t_list	*ft_lstget(t_list *lst, int index);
 ssize_t	ft_strcwords(char *str, char delimeter);
+ssize_t	ft_strcwords_isspace(char *str);
 ssize_t	ft_ato_ssize_t(const char *str);
 void 	ft_fill(char **tab, t_xy size, t_xy begin);
 int		ft_unsetenv(const char *name, char **envp);
 int		ft_setenv(const char *str, const char *v, char **envp);
 ssize_t	ft_write(int fd, const void *buf, size_t count);
+char	*ft_strtok_thread(char *str, const char *delim, char **saveptr);
+char	*ft_strtok(char *str, const char *delim);
 
 #endif

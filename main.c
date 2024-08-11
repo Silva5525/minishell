@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/11 16:33:40 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void main_process(char *read, char **envp, bool first_time)
 {
 	t_arr	*arr;
 	char	*expand_r;
+	size_t	i;
 
 	add_history(read);
 	expand_r = expanding_env(read, envp);
@@ -92,11 +93,12 @@ void main_process(char *read, char **envp, bool first_time)
 	}
 	arr->first_time = first_time;
 	alloc_envp(arr, envp);
+	//// here some pipehandling later
 	builtin(arr);
-	size_t i = 0;
+	i = 0;
 	while ( i < arr->size)
 	{
-		printf("Token: %s Type: %c\n", arr->ken[i]->str, arr->ken[i]->typ);
+		printf("Token: %s Type: %c\n", arr->ken[i]->str[0], arr->ken[i]->typ);
 		i++;
 	}
 	free_tokens(arr);
