@@ -6,13 +6,16 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 20:31:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/12 13:06:24 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/12 13:47:13 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-
+/// @brief executes the command with execve
+/// @param do_it the executable
+/// @param envp enviroment variables
+/// @return EXIT_SUCCESS or EXIT_FAILURE
 int	do_order(char **do_it, char **envp)
 {
 	if (execve(do_it[0], do_it, envp) == -1)
@@ -21,6 +24,12 @@ int	do_order(char **do_it, char **envp)
 	return (EXIT_SUCCESS);
 }
 
+/// @brief creates a child process and redirects the file descriptor
+/// @param do_it the executable
+/// @param envp enviroment variables
+/// @param fileno number for dup2 (0, 1, 2)
+/// @param fd file descriptor
+/// @return pid the process id
 pid_t	child_pipe(char **do_it, char **envp, int fileno, int *fd)
 {
 	pid_t	pid;
@@ -46,10 +55,10 @@ pid_t	child_pipe(char **do_it, char **envp, int fileno, int *fd)
 	return (pid);
 }
 
-/// @brief Hand
-/// @param do1 
-/// @param do2 
-/// @param envp 
+/// @brief creates a pipe and forks two children 
+/// @param do1 executable 1
+/// @param do2 executable 2
+/// @param envp enviroment variables
 void	pipex(char **do1, char **do2, char **envp)
 {
 	int		fd[2];
