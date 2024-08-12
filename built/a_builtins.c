@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/11 16:21:18 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/11 20:14:42 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	**ft_arr_setenv(const char *str, const char *v, char **envp, bool first_tim
 void	builtin(t_arr *arr)
 {
 	size_t	i;
-	t_b built[] =
+	t_b		built[] =
 	{
 		{"echo", b_echo},
 		{"cd", b_cd},

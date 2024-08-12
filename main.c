@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/11 16:33:40 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/12 12:49:37 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /// @rl_on_new_line() Prepare Readline to read the next input
 /// @rl_replace_line("", 0) clears the current line
 /// @rl_redisplay() redisplays the prompt on a cleared line
-void read_signal(int sig)
+void	read_signal(int sig)
 {
 	if (sig == SIGINT)
 	{
@@ -29,12 +29,11 @@ void read_signal(int sig)
 	}
 }
 
-
-void alloc_envp(t_arr *arr, char **envp)
+void	alloc_envp(t_arr *arr, char **envp)
 {
-	size_t i;
-	size_t j;
-	size_t k;
+	size_t	i;
+	size_t	j;
+	size_t	k;
 
 	if (arr->first_time)
 	{
@@ -74,7 +73,7 @@ void alloc_envp(t_arr *arr, char **envp)
 	arr->envp[i] = NULL;
 }
 
-void main_process(char *read, char **envp, bool first_time)
+void	main_process(char *read, char **envp, bool first_time)
 {
 	t_arr	*arr;
 	char	*expand_r;
@@ -107,12 +106,12 @@ void main_process(char *read, char **envp, bool first_time)
 
 char	*direktory_minishell(void)
 {
-	char	*pwd;
+	char		*pwd;
 	const char	*ms;
-	char 	*out;
-	int		i;
-	int		j;
-	
+	char		*out;
+	int			i;
+	int			j;
+
 	out = (char *)malloc(sizeof(char) * (PATH_MAX + 11));
 	if (!out)
 	{
@@ -131,7 +130,7 @@ char	*direktory_minishell(void)
 		out[i] = pwd[i];
 		i++;
 	}
-	free(pwd);	
+	free(pwd);
 	ms = " minishell$ ";
 	j = 0;
 	while (ms[j] && i < PATH_MAX + 11 - 1)
@@ -141,7 +140,7 @@ char	*direktory_minishell(void)
 		j++;
 	}
 	out[i] = '\0';
-	return (out);	
+	return (out);
 }
 
 /// @brief 
@@ -154,9 +153,9 @@ int	main(int argc, char **argv, char **envp)
 	char	*read;
 	char	*pwd;
 	bool	first_time;
+
 	(void)argc;
 	(void)argv;
-
 	signal(SIGINT, read_signal);
 	signal(SIGQUIT, SIG_IGN);
 	first_time = true;

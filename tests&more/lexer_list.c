@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/07 18:56:44 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/10 20:42:45 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/12 12:56:33 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ t_to	*to_ken_producer(const char *read)
 
 void	free_kens(t_to *ken)
 {
-	t_to *hold;
+	t_to	*hold;
 
 	while (ken)
 	{
@@ -118,11 +118,11 @@ void	free_kens(t_to *ken)
 	}
 }
 
-// int main(void)
+// int	main(void)
 // {
-// 	const char	*read = "echo Ducks are cool | grep Ducks > output.txt";
+// 	const char	*read = "echo \"Ducks \"are cool | grep Ducks > output.txt";
 // 	t_to		*ken = to_ken_producer(read);
-	
+
 // 	t_to *arr = ken;
 // 	while (arr)
 // 	{

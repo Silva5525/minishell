@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 18:27:22 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/11 17:33:30 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/12 13:38:09 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,18 @@
 
 /// @brief 
 /// @param arr 
-void free_tokens(t_arr *arr)
+void	free_tokens(t_arr *arr)
 {
-	size_t i;
-	size_t j;
+	size_t	i;
+	size_t	j;
 
 	if (!arr)
 		return ;
 	if (arr->direktory)
-		free(arr->direktory), arr->direktory = NULL;
+	{
+		free(arr->direktory);
+		arr->direktory = NULL;
+	}
 	if (!arr->first_time && arr->envp)
 	{
 		i = 0;
@@ -32,7 +35,8 @@ void free_tokens(t_arr *arr)
 			arr->envp[i] = NULL;
 			i++;
 		}
-		free(arr->envp), arr->envp = NULL;
+		free(arr->envp);
+		arr->envp = NULL;
 	}
 	i = 0;
 	while (i < arr->size)
@@ -46,31 +50,36 @@ void free_tokens(t_arr *arr)
 				{
 					while (arr->ken[i]->str[j])
 					{
-						free(arr->ken[i]->str[j]), arr->ken[i]->str[j] = NULL;
+						free(arr->ken[i]->str[j]);
+						arr->ken[i]->str[j] = NULL;
 						j++;
 					}
 				}
-				
-				free(arr->ken[i]->str), arr->ken[i]->str = NULL;
+				free(arr->ken[i]->str);
+				arr->ken[i]->str = NULL;
 			}
-			free(arr->ken[i]), arr->ken[i] = NULL;
+			free(arr->ken[i]);
+			arr->ken[i] = NULL;
 		}
 		i++;
 	}
 	if (arr->ken)
-		free(arr->ken), arr->ken = NULL;
+	{
+		free(arr->ken);
+		arr->ken = NULL;
+	}
 	free(arr);
 }
 
-void catch_token(t_arr *arr, t_to *ken)
+void	catch_token(t_arr *arr, t_to *ken)
 {
-	t_to **new_ken;
-	
+	t_to	**new_ken;
+
 	if (arr->size == arr->max_size)
 	{
 		arr->max_size *= 2;
-		new_ken = ft_realloc(arr->ken, sizeof(t_to *) * arr->max_size / 2
-				, sizeof(t_to *) * arr->max_size);
+		new_ken = ft_realloc(arr->ken, sizeof(t_to *)
+				* arr->max_size / 2, sizeof(t_to *) * arr->max_size);
 		if (!new_ken)
 		{
 			free_tokens(arr);
@@ -82,9 +91,11 @@ void catch_token(t_arr *arr, t_to *ken)
 	arr->ken[arr->size++] = ken;
 }
 
-t_arr *flexible_arr(void)
+t_arr	*flexible_arr(void)
 {
-	t_arr	*arr = malloc(sizeof(t_arr));
+	t_arr	*arr;
+
+	arr = malloc(sizeof(t_arr));
 	if (!arr)
 		return (write(2, "Error, flexible_arr malloc\n", 27), NULL);
 	arr->ken = malloc(sizeof(t_to) * 16);
@@ -105,7 +116,9 @@ t_arr *flexible_arr(void)
 
 t_to	*list_token(char **val, int typ)
 {
-	t_to	*ken = malloc(sizeof(t_to));
+	t_to	*ken;
+
+	ken = malloc(sizeof(t_to));
 	if (!ken)
 		return (NULL);
 	ken->str = val;
@@ -113,7 +126,7 @@ t_to	*list_token(char **val, int typ)
 	return (ken);
 }
 
-char **split_str_to_arg(char *str)
+char	**split_str_to_arg(char *str)
 {
 	int		i;
 	int		w_count;
@@ -150,10 +163,9 @@ char **split_str_to_arg(char *str)
 t_arr	*to_ken_producer(const char *read)
 {
 	t_arr	*arr;
-	char 	**arg;
+	char	**arg;
 	char	buf[1024];
-	char	*vip_str[2];
-	int i;
+	int		i;
 
 	arr = flexible_arr();
 	if (!arr)
@@ -167,12 +179,16 @@ t_arr	*to_ken_producer(const char *read)
 		}
 		if (ft_strchr(">|<", *read))
 		{
-			if ((*read == '>' && *(read + 1) == '>')
-				|| (*read == '<' && *(read + 1) == '<'))
+			if (*read == '>' && *(read + 1) == '>')
 			{
-				buf[0] = *read;
-				buf[1] = *(read + 1);
-				buf[2] = '\0';
+				buf[0] = 'A';
+				buf[1] = '\0';
+				read += 2;
+			}
+			else if (*read == '<' && *(read + 1) == '<')
+			{
+				buf[0] = 'H';
+				buf[1] = '\0';
 				read += 2;
 			}
 			else
@@ -181,16 +197,15 @@ t_arr	*to_ken_producer(const char *read)
 				buf[1] = '\0';
 				read++;
 			}
-			vip_str[0] = buf;
-			vip_str[1] = NULL;
-			catch_token(arr, list_token(vip_str, *read));
+			arg = ft_split(buf, ' ');
+			catch_token(arr, list_token(arg, *read));
 			continue ;
 		}
 		i = 0;
 		while (*read && !ft_isspace(*read) && !ft_strchr(">|<", *read))
 			buf[i++] = *read++;
 		buf[i] = '\0';
-		arg  = split_str_to_arg(buf);
+		arg = split_str_to_arg(buf);
 		catch_token(arr, list_token(arg, 'w'));
 	}
 	return (arr);
@@ -201,7 +216,6 @@ t_arr	*to_ken_producer(const char *read)
 // 	const char	*read = "echo Ducks are cool | grep Ducks > output.txt";
 // 	t_arr		*arr = to_ken_producer(read);
 // 	size_t		i;
-	
 // 	i = 0;
 // 	while (i < arr->size)
 // 	{
