@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/12 12:49:37 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/13 16:46:43 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,21 @@ void	alloc_envp(t_arr *arr, char **envp)
 	arr->envp[i] = NULL;
 }
 
+static bool	pipe_search(t_arr *arr)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < arr->size)
+	{
+		if (arr->ken[i]->typ == '|')
+			return (true);
+		i++;
+	}
+	return (false);
+}
+
+
 void	main_process(char *read, char **envp, bool first_time)
 {
 	t_arr	*arr;
@@ -92,10 +107,13 @@ void	main_process(char *read, char **envp, bool first_time)
 	}
 	arr->first_time = first_time;
 	alloc_envp(arr, envp);
-	//// here some pipehandling later
-	builtin(arr);
+	redir(arr);
+	if (pipe_search(arr))
+		do_pipe(arr);
+	else
+		builtin(arr);
 	i = 0;
-	while ( i < arr->size)
+	while (i < arr->size)
 	{
 		printf("Token: %s Type: %c\n", arr->ken[i]->str[0], arr->ken[i]->typ);
 		i++;
@@ -172,11 +190,7 @@ int	main(int argc, char **argv, char **envp)
 		if (read)
 			main_process(read, envp, first_time);
 		else
-		{
-			write(1, "exit\n", 5);
-			break ;
-		}
+			return (write(1, "exit\n", 5), EXIT_SUCCESS);
 		first_time = false;
 	}
-	return (EXIT_SUCCESS);
 }

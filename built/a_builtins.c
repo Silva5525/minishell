@@ -6,12 +6,11 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 14:26:13 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/11 20:14:42 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/12 16:51:04 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
-
 
 /// @brief own implementation of setenv from stdlib.c
 /// Checks if *str is valid then searches for the *v variable in the envp array.
@@ -22,12 +21,13 @@
 /// @param envp the enviroment array.
 /// @param first_time if true, the function will not free the old envp.
 /// @return the new envp array or NULL if an error occurred.
-char	**ft_arr_setenv(const char *str, const char *v, char **envp, bool first_time)
+char	**ft_arr_setenv(const char *str, const char *v
+			, char **envp, bool first_time)
 {
 	char	*new;
-	char 	*hold;
-	int 	i;
-	int 	len;
+	char	*hold;
+	int		i;
+	int		len;
 
 	if (!str || !v || ft_strchr(str, '=') != NULL || *str == '\0')
 		return (NULL);
@@ -54,7 +54,8 @@ char	**ft_arr_setenv(const char *str, const char *v, char **envp, bool first_tim
 	{
 		if (!first_time)
 		{
-			envp = ft_realloc(envp, sizeof(char *) * (i + 1) ,sizeof(char *) * (i + 2));
+			envp = ft_realloc(envp, sizeof(char *)
+					* (i + 1), sizeof(char *) * (i + 2));
 			if (!envp)
 				return (free(new), NULL);
 		}
@@ -62,6 +63,39 @@ char	**ft_arr_setenv(const char *str, const char *v, char **envp, bool first_tim
 	}
 	envp[i] = new;
 	return (envp);
+}
+
+/// @brief executes the command
+/// @param arr holds all data
+void	ex_order(t_arr *arr)
+{
+	pid_t	pid;
+	int		stat;
+
+	pid = fork();
+	if (pid < 0)
+	{
+		free_tokens(arr);
+		write(2, "Error, fork failed in ex_order\n", 31);
+		exit(EXIT_FAILURE);
+	}
+	else if (pid == 0)
+	{
+		if (execve(arr->ken[0]->str[0], arr->ken[0]->str, arr->envp) == -1)
+		{
+			free_tokens(arr);
+			write(2, "Error, execve failed in ex_order\n", 33);
+			exit(EXIT_FAILURE);
+		}
+	}
+	else
+	{
+		waitpid(pid, &stat, 0);
+		if (WIFEXITED(stat))
+			arr->stat = WEXITSTATUS(stat);
+		else if (WIFSIGNALED(stat))
+			arr->sig = WTERMSIG(stat);
+	}
 }
 
 void	builtin(t_arr *arr)
@@ -78,6 +112,7 @@ void	builtin(t_arr *arr)
 		{"exit", b_exit},
 		{NULL, NULL}
 	};
+
 	i = 0;
 	while (built[i].name)
 	{
@@ -88,5 +123,5 @@ void	builtin(t_arr *arr)
 		}
 		i++;
 	}
-	/// maybe some execution handling for non builtins ? exit maybe too xD
+	ex_order(arr);
 }

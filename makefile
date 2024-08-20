@@ -6,7 +6,7 @@
 #    By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/05 15:45:34 by wdegraf           #+#    #+#              #
-#    Updated: 2024/07/19 17:32:56 by wdegraf          ###   ########.fr        #
+#    Updated: 2024/08/13 14:13:28 by wdegraf          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ HEADERS	:= -I ./include -I $(LIBFT)
 
 LIBS	:= -L$(LIBFT) -lft -lreadline
 
-SRCS	:= main.c lexer.c expand.c built/b_export.c built/b_cd.c built/b_echo.c \
+SRCS	:= main.c lexer.c expand.c piping.c redir.c \
+			built/b_export.c built/b_cd.c built/b_echo.c \
 			built/b_pwd.c built/a_builtins.c built/b_exit.c built/b_env.c \
 			built/b_unset.c
 OBJS	:= ${SRCS:.c=.o}

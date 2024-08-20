@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 18:27:22 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/12 13:42:30 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/12 16:21:42 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,8 @@ t_arr	*flexible_arr(void)
 	arr->envp = NULL;
 	arr->in_fd = STDIN_FILENO;
 	arr->out_fd = STDOUT_FILENO;
+	arr->stat = 0; // needed?
+	arr->sig = 0; //needed?
 	return (arr);
 }
 
