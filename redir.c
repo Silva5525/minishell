@@ -6,12 +6,16 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/12 14:58:42 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/13 16:57:27 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/31 16:36:53 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
+/// @brief 
+/// @param file 
+/// @param append 
+/// @param arr 
 void	out_redir(char *file, bool append, t_arr *arr)
 {
 	int	fd;

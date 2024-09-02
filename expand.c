@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/19 16:42:54 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/07/20 11:31:52 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/28 17:22:35 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 /// @param envp the environment array
 /// @param str string to search
 /// @return variable value or NULL if the variable is not found
-static char *ft_getenv_val(char **envp, char *str)
+static char	*ft_getenv_val(char **envp, char *str)
 {
 	size_t		i;
 	size_t		j;
@@ -33,22 +33,54 @@ static char *ft_getenv_val(char **envp, char *str)
 	return (NULL);
 }
 
-/// @brief searches for $ in the string and replaces the variable with its value
-/// if the variable is not found, the variable will be replaced with an empty string
-/// and the search will continue.
+/// @brief replaces the variable with its environment value
+/// for example: $HOME will be replaced with the environment value of the
+/// HOME=Example which is Example.
+/// @param doller Pointer to the $ in the string
+/// @param hold current string holds the expanded string
+/// @param envp the environment array
+/// @param out output string to result after joining
+/// @return Pointer of position in the string after the processed variable
+/// or NULL if an error occurred
+static char	*split_doller_search(
+			char *doller, char *hold, char **envp, char *out)
+{
+	char	*search;
+	char	*env;
+	char	safe;
+
+	search = doller + 1;
+	while ((*search && ft_isalnum(*search)) || *search == '_')
+		search++;
+	safe = *search;
+	*search = '\0';
+	env = ft_getenv_val(envp, doller + 1);
+	*search = safe;
+	if (env)
+	{
+		out = ft_strjoin(hold, env);
+		if (!out)
+			return (NULL);
+		free(hold);
+		hold = out;
+	}
+	return (search);
+}
+
+/// @brief search for $ in the string and replaces the variable with its value.
+/// If the variable is not found, the variable will be replaced with an empty
+/// string and the search will continue.
 /// @param str string to search
 /// @param hold hold the string
 /// @param envp environment array
 /// @param out the expanded string
 /// @return hold or NULL if an error occurred
-static char	*doller_search(char *str,char *hold, char **envp, char *out)
+static char	*doller_search(char *str, char *hold, char **envp, char *out)
 {
 	char	*doller;
-	char	*search;
-	char	*env;
-	char	safe;
-	
-	while ((doller = ft_strchr(str, '$')))
+
+	doller = ft_strchr(str, '$');
+	while (doller)
 	{
 		*doller = '\0';
 		out = ft_strjoin(hold, str);
@@ -56,22 +88,8 @@ static char	*doller_search(char *str,char *hold, char **envp, char *out)
 		if (!out)
 			return (NULL);
 		hold = out;
-		search = doller + 1;
-		while ((*search && ft_isalnum(*search)) || *search == '_')
-			search++;
-		safe = *search;
-		*search = '\0';
-		env = ft_getenv_val(envp, doller + 1);
-		*search = safe;
-		if (env)
-		{
-			out = ft_strjoin(hold, env);
-			if (!out)
-				return (NULL);
-			free(hold);
-			hold = out;
-		}
-		str = search;
+		str = split_doller_search(doller, hold, envp, out);
+		doller = ft_strchr(str, '$');
 	}
 	return (hold);
 }

@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 15:38:45 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/13 16:46:43 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/09/02 19:10:45 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,6 @@ static bool	pipe_search(t_arr *arr)
 	}
 	return (false);
 }
-
 
 void	main_process(char *read, char **envp, bool first_time)
 {

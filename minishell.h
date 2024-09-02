@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/05 14:52:57 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/13 16:42:17 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/27 16:40:40 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,6 @@ typedef struct s_arr
 	bool	first_time;
 }	t_arr;
 
-// typedef struct s_ast
-// {
-// 	int				typ;
-// 	char			*str;
-// 	struct s_ast	*right;
-// 	struct s_ast	*left;
-// }	t_ast;
-
 typedef void	(*t_built_f)(t_arr *arr);
 typedef struct s_builtin
 {
@@ -75,7 +67,6 @@ typedef struct s_builtin
 }	t_b;
 
 /// ########################################## @brief./built ################
-/// 
 
 void	builtin(t_arr *arr);
 void	b_echo(t_arr *arr);

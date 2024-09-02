@@ -6,7 +6,7 @@
 /*   By: wdegraf <wdegraf@student.42heilbronn.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 14:02:37 by wdegraf           #+#    #+#             */
-/*   Updated: 2024/08/20 14:20:17 by wdegraf          ###   ########.fr       */
+/*   Updated: 2024/08/28 22:01:48 by wdegraf          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,15 +52,15 @@ bool	loop_arg(t_arr *arr, char **order
 		order[k] = ft_strdup(arr->ken[hold]->str[0]);
 		if (!order[k])
 		{
-			write(2, "Error, malloc or ft_strdup failed in split_pipe_orders\n", 55);
-			return false;
+			write(2, "Error, ft_strdup failed in split_pipe_orders\n", 45);
+			return (false);
 		}
 		k++;
 		hold++;
 	}
 	order[k] = NULL;
-	return true;
-}
+	return (true);
+} /// check that
 
 void	split_pipe_orders_loop(t_arr *arr, char ***order, size_t i, size_t hold)
 {
@@ -74,7 +74,7 @@ void	split_pipe_orders_loop(t_arr *arr, char ***order, size_t i, size_t hold)
 			order[count_i] = (char **)malloc(sizeof(char *) * (i - hold + 1));
 			if (!order[count_i])
 			{
-				write(2, "Error, malloc or ft_strdup failed in split_pipe_orders\n", 55);
+				write(2, "Error, malloc failed in split_pipe_orders\n", 42);
 				mini_exit(order, arr);
 			}
 			if (!loop_arg(arr, order[count_i], hold, i))
@@ -152,7 +152,7 @@ void	ex_pipe_order(char ***order, t_arr *arr)
 		fd = pipefd[0];
 		i++;
 	}
-}
+} /// need a check if comand is not valid
 
 void	do_pipe(t_arr *arr)
 {
